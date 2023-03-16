@@ -87,10 +87,10 @@ class DashatarScore extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const AppFlutterLogo(
-                        height: 18,
-                        isColored: false,
-                      ),
+                      // const AppFlutterLogo(
+                      //   height: 18,
+                      //   isColored: false,
+                      // ),
                       const ResponsiveGap(
                         small: 24,
                         medium: 32,

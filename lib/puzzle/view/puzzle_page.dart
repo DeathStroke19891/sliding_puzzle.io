@@ -8,6 +8,7 @@ import 'package:very_good_slide_puzzle/layout/layout.dart';
 import 'package:very_good_slide_puzzle/models/models.dart';
 import 'package:very_good_slide_puzzle/puzzle/puzzle.dart';
 import 'package:very_good_slide_puzzle/simple/simple.dart';
+import 'package:very_good_slide_puzzle/dashatar/themes/green_dashatar_theme.dart';
 import 'package:very_good_slide_puzzle/theme/theme.dart';
 import 'package:very_good_slide_puzzle/timer/timer.dart';
 import 'package:very_good_slide_puzzle/typography/typography.dart';
@@ -159,45 +160,53 @@ class PuzzleHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var theme = Theme.of(context);
     return SizedBox(
       height: 96,
       child: ResponsiveLayoutBuilder(
-        small: (context, child) => Stack(
-          children: [
-            const Align(
-              child: PuzzleLogo(),
+        small: (context, child) => Container(
+          color: Colors.white,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 34,
             ),
-            Align(
-              alignment: Alignment.centerRight,
-              child: Padding(
-                padding: const EdgeInsets.only(right: 34),
-                child: AudioControl(key: audioControlKey),
-              ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: const [
+                PuzzleLogo(),
+                //PuzzleMenu(),
+              ],
             ),
-          ],
-        ),
-        medium: (context, child) => Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 50,
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
-              PuzzleLogo(),
-              //PuzzleMenu(),
-            ],
           ),
         ),
-        large: (context, child) => Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 50,
+        medium: (context, child) => Container(
+          color: Colors.white,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 50,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: const [
+                PuzzleLogo(),
+                //PuzzleMenu(),
+              ],
+            ),
           ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
-              PuzzleLogo(),
-//PuzzleMenu(),
-            ],
+        ),
+        large: (context, child) => Container(
+          color: Colors.white,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 50,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: const [
+                PuzzleLogo(),
+                //PuzzleMenu(),
+              ],
+            ),
           ),
         ),
       ),
@@ -215,12 +224,12 @@ class PuzzleLogo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = context.select((ThemeBloc bloc) => bloc.state.theme);
-
-    return AppFlutterLogo(
-      key: puzzleLogoKey,
-      isColored: theme.isLogoColored,
-    );
+    var theme = Theme.of(context);
+    return Container(
+        child: Row(children: [
+      Image.asset('assets/images/dashatar/success/green.jfif', height: 374),
+      Text("Coding Club"),
+    ]));
   }
 }
 
